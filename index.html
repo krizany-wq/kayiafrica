@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayi Microfinance | Financial Services for People and Businesses</title>
+  <meta name="description" content="Kayi Microfinance delivers secure digital financial services for individuals, merchants, and businesses across Nigeria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --kayi-green: #00a651;
+      --kayi-red: #e53a2e;
+      --kayi-black: #131313;
+      --kayi-lime: #22d67a;
+      --kayi-peach: #ffe7df;
+      --kayi-sky: #e9f5ff;
+      --kayi-ink: #222222;
+      --kayi-muted: #667085;
+      --kayi-border: #e5e7eb;
+      --kayi-soft: #f5fbf8;
+      --kayi-card: #ffffff;
+      --radius: 16px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 15px 45px rgba(19, 19, 19, 0.08);
+      --shadow-strong: 0 20px 60px rgba(0, 166, 81, 0.22);
+      --container: min(1160px, calc(100vw - 2.5rem));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+      color: var(--kayi-ink);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 90% 2%, rgba(34, 214, 122, 0.16), transparent 35%),
+        radial-gradient(circle at 0% 18%, rgba(229, 58, 46, 0.14), transparent 30%),
+        radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.08), transparent 38%),
+        #ffffff;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    h1, h2, h3, h4 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--kayi-black);
+    }
+
+    .container { width: var(--container); margin: 0 auto; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: rgba(0, 166, 81, 0.1);
+      color: var(--kayi-green);
+      margin-bottom: 1rem;
+    }
+
+    .chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--kayi-green);
+      box-shadow: 0 0 0 6px rgba(0, 166, 81, 0.12);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: 0;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem 1.25rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--kayi-green), var(--kayi-lime));
+      color: #fff;
+      box-shadow: 0 10px 26px rgba(0, 166, 81, 0.35);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-strong); }
+
+    .btn-outline {
+      border: 2px solid var(--kayi-black);
+      color: var(--kayi-black);
+      background: #fff;
+    }
+
+    .btn-outline:hover { transform: translateY(-2px); background: #f9fafb; }
+
+    .section-title { font-size: clamp(1.85rem, 3.5vw, 3rem); margin-bottom: 0.85rem; }
+    .section-sub { color: var(--kayi-muted); max-width: 60ch; }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 80;
+      border-bottom: 1px solid transparent;
+      transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: #ebedf0;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand { display: inline-flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .brand-logo { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; box-shadow: 0 8px 20px rgba(0, 166, 81, 0.2); }
+
+    .menu { list-style: none; display: flex; align-items: center; gap: 1.45rem; }
+
+    .menu a {
+      color: #1b1b1b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: color 0.25s;
+    }
+
+    .menu a:hover { color: var(--kayi-green); }
+
+    .mobile-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--kayi-border);
+      background: #fff;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .mobile-toggle span,
+    .mobile-toggle span::before,
+    .mobile-toggle span::after {
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: #111;
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.2s;
+    }
+
+    .mobile-toggle span::before { margin-top: -6px; }
+    .mobile-toggle span::after { margin-top: 6px; }
+
+    .hero { padding-top: 9.5rem; padding-bottom: 5rem; position: relative; }
+
+    .hero-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.03fr 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero h1 { font-size: clamp(2.2rem, 5.8vw, 4.5rem); margin-bottom: 1rem; }
+    .hero h1 .accent { color: var(--kayi-green); }
+
+    .hero p {
+      font-size: clamp(1rem, 2.1vw, 1.2rem);
+      color: #3f4756;
+      max-width: 53ch;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      color: #4b5563;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .trust-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #fff;
+      border: 1px solid var(--kayi-border);
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .hero-visual { position: relative; min-height: 560px; }
+
+    .visual-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+      border: 1px solid #edf0f3;
+    }
+
+    .hero-main { width: 100%; height: 560px; }
+    .hero-main svg,
+    .hero-main img { width: 100%; height: 100%; display: block; }
+
+    .float-box {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      border: 1px solid #edf0f3;
+      box-shadow: var(--shadow-soft);
+      min-width: 178px;
+      animation: bob 3.8s ease-in-out infinite;
+    }
+
+    .float-box h4 { font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .float-box p { margin: 0; font-size: 0.86rem; color: var(--kayi-muted); }
+
+    .float-1 { top: 28px; left: -28px; }
+    .float-2 { right: -18px; bottom: 100px; animation-delay: 0.8s; }
+    .float-3 { left: 14%; bottom: -28px; animation-delay: 1.25s; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .stats { padding: 1rem 0 4.75rem; }
+    .flow { padding: 0 0 4.25rem; }
+    .flow-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .flow-card {
+      border: 1px solid #e3ebf2;
+      border-radius: 16px;
+      background: linear-gradient(160deg, #ffffff, #f8fbff);
+      padding: 1rem;
+    }
+    .flow-card strong {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--kayi-green);
+      color: #fff;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .flow-card h3 { font-size: 1.04rem; margin-bottom: 0.35rem; }
+    .flow-card p { color: #5b6778; font-size: 0.9rem; }
+
+    .stats-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid #eef2f6;
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .stat-card h3 { font-size: clamp(1.4rem, 3.6vw, 2.2rem); color: var(--kayi-green); margin-bottom: 0.25rem; }
+    .stat-card p { color: #6b7280; font-size: 0.92rem; margin: 0; }
+
+    .products { padding: 5.25rem 0; background: linear-gradient(to bottom, #fff, var(--kayi-sky)); }
+    .products-head { width: var(--container); margin: 0 auto 2rem; }
+
+    .product-tabs {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 1.1rem;
+      align-items: start;
+    }
+
+    .tab-list { display: grid; gap: 0.75rem; }
+
+    .tab-btn {
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      border-radius: 14px;
+      padding: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tab-btn strong { display: block; margin-bottom: 0.35rem; font-size: 1rem; color: #101828; }
+    .tab-btn span { font-size: 0.87rem; color: #667085; }
+
+    .tab-btn.active {
+      border-color: rgba(0, 166, 81, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 166, 81, 0.11);
+      transform: translateY(-2px);
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fadePanel 0.35s ease; }
+
+    @keyframes fadePanel {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-card {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e8ecef;
+      box-shadow: var(--shadow-soft);
+      transform-style: preserve-3d;
+      transition: transform 0.15s linear;
+    }
+
+    .product-card-media { height: 280px; overflow: hidden; background: #f6fbff; }
+    .product-card-media svg,
+    .product-card-media img { width: 100%; height: 100%; display: block; }
+    .product-card-body { padding: 1.35rem; }
+    .product-card-body h3 { font-size: 1.55rem; margin-bottom: 0.6rem; }
+
+    .product-points { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.95rem 0 1.1rem; }
+
+    .product-points span {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0f5132;
+      border: 1px solid #b6e4cb;
+      background: #ecfdf3;
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+    }
+
+    .pricing-section { padding: 5rem 0; background: #ffffff; }
+    .pricing-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid #e6ebef;
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+    }
+    .price-card h3 { font-size: 1.35rem; margin-bottom: 0.8rem; }
+    .price-item {
+      border: 1px solid #e9edf2;
+      border-radius: 12px;
+      padding: 0.75rem;
+      background: #f9fbfc;
+      margin-bottom: 0.5rem;
+    }
+    .price-item strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+      font-size: 0.93rem;
+    }
+    .price-item span { color: #475569; font-size: 0.86rem; }
+    .price-note { margin-top: 0.7rem; color: #64748b; font-size: 0.8rem; }
+
+    .experience { padding: 5rem 0; background: #f7f9fb; }
+
+    .exp-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .exp-item {
+      border-radius: 18px;
+      border: 1px solid #e6eaef;
+      background: #fff;
+      padding: 1.3rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .exp-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+
+    .exp-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(160deg, var(--kayi-green), #089149);
+      margin-bottom: 0.8rem;
+    }
+
+    .exp-item:nth-child(2) .exp-icon { background: linear-gradient(160deg, var(--kayi-red), #de4b40); }
+    .exp-item:nth-child(3) .exp-icon { background: linear-gradient(160deg, #2e3137, #111111); }
+
+    .exp-item h3 { margin-bottom: 0.45rem; font-size: 1.15rem; }
+    .exp-item p { color: #5d6777; font-size: 0.93rem; }
+
+    .testimonials { padding: 5.25rem 0; }
+
+    .testi-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .testi-slider {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid #e8ecef;
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+      min-height: 290px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 2rem;
+      display: grid;
+      align-content: center;
+      gap: 1rem;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .slide.active { opacity: 1; pointer-events: auto; }
+
+    .slide q {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+      line-height: 1.35;
+      color: #111827;
+      quotes: "\201C" "\201D";
+    }
+
+    .slide-user { display: flex; align-items: center; gap: 0.75rem; }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+
+    .slider-controls { display: flex; gap: 0.55rem; margin-top: 0.2rem; }
+
+    .slider-controls button {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid #dce2e7;
+      background: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .awards {
+      border-radius: 20px;
+      border: 1px solid #e8ecef;
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(160deg, #131313, #262626);
+      padding: 1.4rem;
+      color: #f8fafc;
+    }
+
+    .awards h3 { color: #fff; margin-bottom: 0.8rem; font-size: 1.25rem; }
+
+    .awards ul { list-style: none; display: grid; gap: 0.7rem; }
+
+    .awards li {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .security-section { padding: 5rem 0; background: #f3f9ff; }
+    .security-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .security-card {
+      border: 1px solid #e3e9ef;
+      border-radius: 16px;
+      background: #fff;
+      padding: 1.2rem;
+    }
+    .security-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .security-card p { color: #556274; font-size: 0.9rem; }
+
+    .awareness-section { padding: 5rem 0; background: var(--kayi-peach); }
+    .awareness-wrap { width: var(--container); margin: 0 auto; }
+    .awareness-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .aware-card {
+      border: 1px solid #f2d4ce;
+      border-radius: 16px;
+      background: #fff;
+      padding: 1.1rem;
+    }
+    .aware-card h3 { color: #8a1c16; margin-bottom: 0.45rem; font-size: 1.08rem; }
+    .aware-card p { color: #5e6877; font-size: 0.9rem; }
+    .aware-list {
+      margin-top: 1rem;
+      border: 1px dashed #eab6ab;
+      border-radius: 14px;
+      padding: 0.95rem;
+      background: #fff;
+    }
+    .aware-list h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .aware-list ul { list-style: none; display: grid; gap: 0.35rem; color: #475569; font-size: 0.88rem; }
+
+    .download-strip { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .store-btn {
+      text-decoration: none;
+      color: #111827;
+      border: 1px solid #d9e1e8;
+      border-radius: 12px;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .store-btn svg { width: 22px; height: 22px; }
+    .store-btn small { display: block; font-weight: 500; color: #64748b; line-height: 1.1; }
+    .store-btn strong { display: block; line-height: 1.1; }
+
+    .faq { padding: 5rem 0; background: var(--kayi-soft); }
+    .faq-wrap { width: var(--container); margin: 0 auto; display: grid; gap: 0.7rem; }
+
+    .faq-item { border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; overflow: hidden; }
+
+    .faq-question {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.96rem;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      color: #475569;
+      font-size: 0.92rem;
+      padding: 0 1rem;
+    }
+
+    .faq-item.open .faq-answer { max-height: 180px; padding: 0 1rem 1rem; }
+
+    .cta { padding: 4.5rem 0 5.5rem; }
+
+    .cta-card {
+      width: var(--container);
+      margin: 0 auto;
+      background: linear-gradient(135deg, #111111, #1f2937);
+      color: #fff;
+      border-radius: 28px;
+      padding: 2.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1.4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: rgba(0, 166, 81, 0.24);
+      right: -70px;
+      top: -100px;
+    }
+
+    .cta-card h2 {
+      color: #fff;
+      font-size: clamp(1.65rem, 3.5vw, 2.5rem);
+      margin-bottom: 0.6rem;
+      max-width: 22ch;
+    }
+
+    .cta-card p { color: #d1d5db; max-width: 55ch; }
+
+    footer {
+      border-top: 1px solid #eceff3;
+      padding: 2rem 0;
+      background: #fff;
+      font-size: 0.88rem;
+      color: #667085;
+    }
+
+    .footer-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+      color: #0f172a;
+    }
+
+    .footer-col p,
+    .footer-col li {
+      color: #64748b;
+      font-size: 0.84rem;
+    }
+    .footer-col a { color: #64748b; text-decoration: none; }
+    .footer-col a:hover { color: var(--kayi-green); }
+
+    .footer-col ul { list-style: none; display: grid; gap: 0.35rem; }
+
+    .footer-note {
+      width: var(--container);
+      margin: 1.2rem auto 0;
+      border-top: 1px dashed #dbe1e7;
+      padding-top: 1rem;
+      color: #64748b;
+      font-size: 0.82rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(15px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1080px) {
+      .hero-grid, .testi-wrap, .product-tabs { grid-template-columns: 1fr; }
+      .hero-visual { min-height: auto; }
+      .hero-main { height: 460px; }
+      .float-1 { left: 8px; }
+      .float-2 { right: 8px; }
+      .float-3 { left: 22%; }
+      .stats-grid, .exp-grid, .footer-grid, .pricing-grid, .security-grid, .awareness-grid, .flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tab-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 78px;
+        border: 1px solid #e8ecef;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: var(--shadow-soft);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        overflow: hidden;
+      }
+
+      .menu.open { display: flex; }
+      .menu li { width: 100%; }
+      .menu a { display: block; width: 100%; padding: 0.95rem 1rem; border-bottom: 1px solid #eef1f4; }
+      .menu li:last-child a { border-bottom: 0; }
+      .nav .btn-primary { display: none; }
+      .mobile-toggle { display: inline-block; }
+      .hero { padding-top: 8.5rem; }
+      .hero-main { height: 380px; }
+      .float-box { display: none; }
+      .stats-grid, .exp-grid, .tab-list, .footer-grid, .pricing-grid, .security-grid, .awareness-grid, .flow-grid { grid-template-columns: 1fr; }
+      .cta-card { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <nav class="nav">
+      <a href="#home" class="brand" aria-label="Kayi home">
+        <img class="brand-logo" src="data:image/png;base64,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" alt="Kayi logo" />
+      </a>
+
+      <ul class="menu" id="main-menu">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#experience">Why Kayi</a></li>
+        <li><a href="#testimonials">Stories</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#awareness">Scam Awareness</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <a href="#cta" class="btn btn-primary">Open Account</a>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu"><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="chip">CBN Licensed Microfinance Institution</span>
+          <h1>Smart financial services that help <span class="accent">people and businesses</span> move forward.</h1>
+          <p>
+            Kayi Microfinance gives every generation a faster, safer, and friendlier way to open accounts,
+            transfer funds, pay bills, and run merchant collections.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#cta" class="btn btn-primary">Get Started in Minutes</a>
+            <a href="#products" class="btn btn-outline">Explore Solutions</a>
+          </div>
+
+          <div class="trust-row">
+            <span>NDIC Insured Deposits</span>
+            <span>24/7 Digital Access</span>
+            <span>USSD and POS Support</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual-card hero-main">
+            <img src="https://images.unsplash.com/photo-1521790797524-b2497295b8a0?auto=format&fit=crop&w=1600&q=80" alt="Nigerian customers using digital financial services" loading="lazy" />
+          </div>
+          <div class="float-box float-1">
+            <h4>Fast Transfers</h4>
+            <p>Send funds in seconds, every day.</p>
+          </div>
+          <div class="float-box float-2">
+            <h4>USSD Access</h4>
+            <p>Transactions on any phone, no internet required.</p>
+          </div>
+          <div class="float-box float-3">
+            <h4>POS Collection</h4>
+            <p>Accept card payments with reliable terminals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stats-grid">
+        <article class="stat-card reveal">
+          <h3 data-counter="250000" data-suffix="+">0</h3>
+          <p>Active customer accounts</p>
+        </article>
+        <article class="stat-card reveal">
+          <h3 data-counter="9500" data-suffix="+">0</h3>
+          <p>Merchants using POS terminals</p>
+        </article>
+        <article class="stat-card reveal">
+          <h3 data-counter="99.9" data-suffix="%">0</h3>
+          <p>Digital platform uptime</p>
+        </article>
+        <article class="stat-card reveal">
+          <h3 data-counter="120" data-suffix="+">0</h3>
+          <p>Communities served</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="flow">
+      <div class="flow-grid">
+        <article class="flow-card reveal">
+          <strong>1</strong>
+          <h3>Create your account</h3>
+          <p>Sign up quickly and complete verification in guided steps built for first-time and returning users.</p>
+        </article>
+        <article class="flow-card reveal">
+          <strong>2</strong>
+          <h3>Fund and transact</h3>
+          <p>Use transfers, cards, USSD (*5294#), and POS tools for smooth daily personal and business operations.</p>
+        </article>
+        <article class="flow-card reveal">
+          <strong>3</strong>
+          <h3>Track and grow</h3>
+          <p>Monitor activity, control spend, and make better financial decisions with clear transaction visibility.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="products-head reveal">
+        <span class="chip">Solutions</span>
+        <h2 class="section-title">Products built for real life</h2>
+        <p class="section-sub">
+          Choose what fits your current goals. Kayi supports students, families, salary earners, merchants, and
+          business teams with one secure platform.
+        </p>
+      </div>
+
+      <div class="product-tabs">
+        <div class="tab-list reveal" role="tablist" aria-label="Kayi products">
+          <button class="tab-btn active" data-tab="tab-1" role="tab" aria-selected="true">
+            <strong>Kayi Personal</strong>
+            <span>Everyday account services and bill payment tools.</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-2" role="tab" aria-selected="false">
+            <strong>Kayi Business</strong>
+            <span>Accounts and transfers for startups and SMEs.</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-3" role="tab" aria-selected="false">
+            <strong>Kayi USSD</strong>
+            <span>Fast transactions from any mobile phone.</span>
+          </button>
+          <button class="tab-btn" data-tab="tab-4" role="tab" aria-selected="false">
+            <strong>Kayi POS</strong>
+            <span>Simple merchant collections with reliable terminals.</span>
+          </button>
+        </div>
+
+        <div class="tab-panels reveal">
+          <article class="tab-panel active" id="tab-1" role="tabpanel">
+            <div class="product-card" data-tilt>
+              <div class="product-card-media">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=80" alt="Debit card and mobile app usage in Nigeria" loading="lazy" />
+              </div>
+              <div class="product-card-body">
+                <h3>Personal Account Services</h3>
+                <p>Open an account quickly, get a debit card, pay bills, and transfer funds with clear fees.</p>
+                <div class="product-points">
+                  <span>Instant account opening</span>
+                  <span>Card controls</span>
+                  <span>Bill payment hub</span>
+                </div>
+                <a href="#cta" class="btn btn-primary">Open Personal Account</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-2" role="tabpanel">
+            <div class="product-card" data-tilt>
+              <div class="product-card-media">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80" alt="Nigerian business team reviewing payment analytics" loading="lazy" />
+              </div>
+              <div class="product-card-body">
+                <h3>Business Account Services</h3>
+                <p>Manage payroll, collections, and vendor transfers with role-based access for your team.</p>
+                <div class="product-points">
+                  <span>Bulk transfers</span>
+                  <span>Collection links</span>
+                  <span>Business analytics</span>
+                </div>
+                <a href="#cta" class="btn btn-primary">Start Business Account</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-3" role="tabpanel">
+            <div class="product-card" data-tilt>
+              <div class="product-card-media">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80" alt="USSD transactions on mobile phone in Nigeria" loading="lazy" />
+              </div>
+              <div class="product-card-body">
+                <h3>Kayi USSD</h3>
+                <p>Check balances, transfer funds, and buy airtime with short codes on any GSM device.</p>
+                <div class="product-points">
+                  <span>No data required</span>
+                  <span>Fast short-code flow</span>
+                  <span>Works on feature phones</span>
+                </div>
+                <a href="#pricing" class="btn btn-primary">View USSD Pricing</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-4" role="tabpanel">
+            <div class="product-card" data-tilt>
+              <div class="product-card-media">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=80" alt="Nigerian merchant accepting card payment with POS terminal" loading="lazy" />
+              </div>
+              <div class="product-card-body">
+                <h3>Kayi POS</h3>
+                <p>Accept card payments with stable terminals, merchant dashboard access, and transparent settlement cycles.</p>
+                <div class="product-points">
+                  <span>Merchant onboarding</span>
+                  <span>Terminal support</span>
+                  <span>Transaction reports</span>
+                </div>
+                <a href="#pricing" class="btn btn-primary">View POS Pricing</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="experience" id="experience">
+      <div class="container" style="margin-bottom: 2rem;">
+        <span class="chip reveal">Why Kayi</span>
+        <h2 class="section-title reveal">A world-class experience for every customer segment</h2>
+        <p class="section-sub reveal">
+          Whether you are a student, salary earner, market trader, entrepreneur, or enterprise, Kayi combines human
+          support with digital speed.
+        </p>
+      </div>
+      <div class="exp-grid">
+        <article class="exp-item reveal">
+          <div class="exp-icon">01</div>
+          <h3>Simple onboarding</h3>
+          <p>Open your account in minutes and complete your profile with guided, secure steps.</p>
+        </article>
+        <article class="exp-item reveal">
+          <div class="exp-icon">02</div>
+          <h3>Fast customer support</h3>
+          <p>Get quick help via branch, app, call, and email channels with clear service tracking.</p>
+        </article>
+        <article class="exp-item reveal">
+          <div class="exp-icon">03</div>
+          <h3>Trust and security</h3>
+          <p>Strong encryption, fraud monitoring, and account controls keep customer funds protected.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="testi-wrap">
+        <div class="testi-slider reveal" id="testi-slider">
+          <article class="slide active">
+            <q>Kayi helped me manage school fees and household expenses with better control and visibility.</q>
+            <div class="slide-user">
+              <span class="avatar">
+                <svg viewBox="0 0 48 48" role="img" aria-label="Illustrated avatar">
+                  <rect width="48" height="48" rx="24" fill="#e9f7ef"/>
+                  <circle cx="24" cy="18" r="9" fill="#ffd8cb"/>
+                  <rect x="13" y="28" width="22" height="13" rx="6" fill="#00a651"/>
+                </svg>
+              </span>
+              <div><strong>Amina Yusuf</strong><p>Parent and Retail Customer</p></div>
+            </div>
+          </article>
+          <article class="slide">
+            <q>Payroll and supplier payments are now much faster. My team has better operational visibility.</q>
+            <div class="slide-user">
+              <span class="avatar">
+                <svg viewBox="0 0 48 48" role="img" aria-label="Illustrated avatar">
+                  <rect width="48" height="48" rx="24" fill="#edf2f8"/>
+                  <circle cx="24" cy="18" r="9" fill="#ffd2bf"/>
+                  <rect x="13" y="28" width="22" height="13" rx="6" fill="#111827"/>
+                </svg>
+              </span>
+              <div><strong>Kunle Ade</strong><p>SME Founder</p></div>
+            </div>
+          </article>
+          <article class="slide">
+            <q>Our POS collections became easier to monitor, and settlement timelines are clearly communicated.</q>
+            <div class="slide-user">
+              <span class="avatar">
+                <svg viewBox="0 0 48 48" role="img" aria-label="Illustrated avatar">
+                  <rect width="48" height="48" rx="24" fill="#fff1ed"/>
+                  <circle cx="24" cy="18" r="9" fill="#ffd8cb"/>
+                  <rect x="13" y="28" width="22" height="13" rx="6" fill="#e53a2e"/>
+                </svg>
+              </span>
+              <div><strong>Chinonso Eze</strong><p>Merchant</p></div>
+            </div>
+          </article>
+        </div>
+
+        <aside class="awards reveal">
+          <h3>Trusted by communities</h3>
+          <ul>
+            <li>Best Digital Microfinance Experience 2025</li>
+            <li>Top SME-Friendly Provider Recognition</li>
+            <li>Rated Excellent for Customer Service</li>
+          </ul>
+          <div class="slider-controls" style="margin-top: 1rem;">
+            <button id="prev-slide" aria-label="Previous testimonial">&#8592;</button>
+            <button id="next-slide" aria-label="Next testimonial">&#8594;</button>
+          </div>
+        </aside>
+      </div>
+
+    <section class="pricing-section" id="pricing">
+      <div class="container" style="margin-bottom: 1.4rem;">
+        <span class="chip reveal">Pricing and Charges</span>
+        <h2 class="section-title reveal">Transparent service charges</h2>
+        <p class="section-sub reveal">Selected fees for account services, USSD, and POS. Final charges remain subject to CBN guidance and applicable network/provider fees.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="price-card reveal">
+          <h3>Account Services</h3>
+          <div class="price-item"><strong>Account Opening</strong><span>₦0</span></div>
+          <div class="price-item"><strong>Account Maintenance</strong><span>₦0</span></div>
+          <div class="price-item"><strong>SMS Alert (per message)</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Debit Card Issuance</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Intra-Kayi Transfer</strong><span>₦0</span></div>
+          <p class="price-note">Charges may vary by customer segment and account type.</p>
+        </article>
+        <article class="price-card reveal">
+          <h3>USSD Services</h3>
+          <div class="price-item"><strong>USSD Session Access</strong><span>Per network charge</span></div>
+          <div class="price-item"><strong>USSD Transfer</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Airtime/Data Purchase</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Balance Enquiry</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Mini Statement</strong><span>As applicable</span></div>
+          <p class="price-note">Telecom providers may apply additional charges independently.</p>
+        </article>
+        <article class="price-card reveal">
+          <h3>POS Merchant Services</h3>
+          <div class="price-item"><strong>POS Terminal Deployment</strong><span>Subject to merchant profile</span></div>
+          <div class="price-item"><strong>Merchant Discount Rate (MDR)</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>POS Transaction Charge</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Terminal Support / Replacement</strong><span>As applicable</span></div>
+          <div class="price-item"><strong>Settlement Timeline</strong><span>According to service agreement</span></div>
+          <p class="price-note">Detailed commercial terms are shared during merchant onboarding.</p>
+        </article>
+      </div>
+    </section>
+
+    </section>
+
+    <section class="security-section" id="security">
+      <div class="container" style="margin-bottom: 1.3rem;">
+        <span class="chip reveal">Security</span>
+        <h2 class="section-title reveal">How Kayi protects your account</h2>
+      </div>
+      <div class="security-grid">
+        <article class="security-card reveal">
+          <h3>BVN and NIN Verification</h3>
+          <p>Identity checks using BVN and NIN help protect against impersonation and unauthorized account creation.</p>
+        </article>
+        <article class="security-card reveal">
+          <h3>Biometrics and Device Checks</h3>
+          <p>Biometric authentication and device-level controls add stronger protection for sensitive transactions.</p>
+        </article>
+        <article class="security-card reveal">
+          <h3>Password and PIN Controls</h3>
+          <p>Use strong passwords and never share your PIN. Kayi does not request PIN/password details via calls, SMS, or social media.</p>
+        </article>
+        <article class="security-card reveal">
+          <h3>3DS Card Protection</h3>
+          <p>Card payments use 3D Secure verification to reduce unauthorized card use during online transactions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="awareness-section" id="awareness">
+      <div class="awareness-wrap">
+        <span class="chip reveal">Scam Awareness</span>
+        <h2 class="section-title reveal">Stay alert and protect your money</h2>
+        <div class="awareness-grid">
+          <article class="aware-card reveal">
+            <h3>Common Scam Methods</h3>
+            <p>Fraudsters may impersonate staff, send fake links, or request OTP, PIN, password, BVN, or card details.</p>
+          </article>
+          <article class="aware-card reveal">
+            <h3>How to Stay Safe</h3>
+            <p>Only use official channels, verify unexpected messages, and report suspicious activity immediately.</p>
+          </article>
+        </div>
+        <div class="aware-list reveal">
+          <h4>Never share these with anyone:</h4>
+          <ul>
+            <li>One-Time Passwords (OTP)</li>
+            <li>Card PIN and transaction PIN</li>
+            <li>Internet profile password</li>
+            <li>Full card details and CVV</li>
+            <li>BVN/NIN details in unsolicited chats</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="faq" id="faq">
+      <div class="container" style="margin-bottom: 1.3rem;">
+        <span class="chip reveal">FAQ</span>
+        <h2 class="section-title reveal">Common questions</h2>
+      </div>
+      <div class="faq-wrap">
+        <article class="faq-item reveal open">
+          <button class="faq-question">How long does account opening take? <span>+</span></button>
+          <div class="faq-answer"><p>Most customers complete onboarding in less than 10 minutes after verification details are submitted.</p></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-question">Do you offer USSD? <span>+</span></button>
+          <div class="faq-answer"><p>Yes. USSD service is available for supported mobile networks. Charges are shown in the pricing section.</p></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-question">Can merchants get POS terminals? <span>+</span></button>
+          <div class="faq-answer"><p>Yes. Eligible merchants can request POS terminals and receive onboarding support and usage guidance.</p></div>
+        </article>
+        <article class="faq-item reveal">
+          <button class="faq-question">Where can I find service charges? <span>+</span></button>
+          <div class="faq-answer"><p>All service fees are published in our pricing section and updated in line with regulatory guidance.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta-card reveal">
+        <div>
+          <h2>Start your Kayi journey and simplify your daily financial activities</h2>
+          <p>Join thousands of customers and businesses using Kayi for secure account services, transfers, and merchant collections.</p>
+        </div>
+        <div style="display: flex; gap: 0.7rem; flex-wrap: wrap; position: relative; z-index: 1;">
+          <a href="#" class="btn btn-primary">Open Account</a>
+          <a href="#pricing" class="btn btn-outline" style="border-color: #fff; color: #fff; background: transparent;">View Pricing</a>
+        </div>
+        <div class="download-strip" style="position: relative; z-index: 1;">
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.kayi.mobile" target="_blank" rel="noopener noreferrer" aria-label="Download on Google Play">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 3L14.5 12L3 21V3Z" fill="#34A853"/>
+              <path d="M14.5 12L18.2 8.9L21 10.5C22 11.1 22 12.9 21 13.5L18.2 15.1L14.5 12Z" fill="#FBBC05"/>
+              <path d="M3 3L18.2 8.9L14.5 12L3 3Z" fill="#4285F4"/>
+              <path d="M3 21L14.5 12L18.2 15.1L3 21Z" fill="#EA4335"/>
+            </svg>
+            <span><small>GET IT ON</small><strong>Google Play</strong></span>
+          </a>
+          <a class="store-btn" href="https://apps.apple.com/ng/app/kayi-app/id6478572008" target="_blank" rel="noopener noreferrer" aria-label="Download on App Store">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M16.7 12.7C16.7 15.3 19 16.1 19 16.1C19 16.1 17.2 21.2 14.8 21.2C13.7 21.2 12.9 20.4 11.7 20.4C10.5 20.4 9.6 21.2 8.5 21.2C6.1 21.2 4 16.3 4 12.9C4 9.8 5.9 8.2 7.7 8.2C8.8 8.2 9.7 9 10.4 9C11.1 9 12.2 8.2 13.5 8.2C14 8.2 15.6 8.3 16.7 9.9C16.6 10 14.8 11 14.8 13C14.8 12.9 14.8 12.8 16.7 12.7Z" fill="#111827"/>
+              <path d="M13.9 6.9C14.5 6.1 14.9 5.1 14.8 4C13.8 4.1 12.7 4.7 12.1 5.5C11.6 6.2 11.1 7.2 11.2 8.2C12.3 8.3 13.2 7.8 13.9 6.9Z" fill="#111827"/>
+            </svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a class="store-btn" href="https://app.kayi.africa/" target="_blank" rel="noopener noreferrer" aria-label="Open Kayi Web App">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke="#00a651" stroke-width="2"/>
+              <path d="M3 12H21M12 3C14.5 5.6 14.5 18.4 12 21M12 3C9.5 5.6 9.5 18.4 12 21" stroke="#00a651" stroke-width="1.7"/>
+            </svg>
+            <span><small>OPEN ON</small><strong>Web App</strong></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kayi Microfinance Bank Limited, RC 1099354</h4>
+        <p>Licensed by the Central Bank of Nigeria (CBN) as a Microfinance Institution.</p>
+        <p>Customer deposits are insured by the Nigeria Deposit Insurance Corporation (NDIC), subject to applicable limits.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Regulatory Disclosures</h4>
+        <ul>
+          <li>CBN License Status: Active</li>
+          <li>AML/CFT and KYC compliance controls in place</li>
+          <li>Consumer protection and complaint handling process available</li>
+          <li>Service charges are disclosed in the pricing section</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Corporate Information</h4>
+        <ul>
+          <li>Head Office: 61, Maganda Road,Kano, Nigeria</li>
+          <li>Email: hello@kayi.africa</li>
+          <li>Phone: 0800-000-KAYI (0800-000-5294)</li>
+          <li>Business Hours: Mon - Fri, 8:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Social Media</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/mykayiapp" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://www.instagram.com/mykayiapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@mykayiapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          <li><a href="https://ng.linkedin.com/company/mykayiapp" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://x.com/mykayiapp" target="_blank" rel="noopener noreferrer">X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      &copy; 2026 Kayi Microfinance Bank Limited, RC 1099354. All rights reserved. The information on this site is provided for service guidance and regulatory disclosure.
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const menu = document.getElementById("main-menu");
+    const toggle = document.getElementById("mobile-toggle");
+
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    });
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => menu.classList.remove("open"));
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const counterElements = document.querySelectorAll("[data-counter]");
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseFloat(el.dataset.counter || "0");
+          const suffix = el.dataset.suffix || "";
+          const duration = 1300;
+          const startTime = performance.now();
+
+          const step = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const value = target * progress;
+            const isInt = Number.isInteger(target);
+            el.textContent = isInt ? Math.floor(value).toLocaleString() + suffix : value.toFixed(1) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+          counterObserver.unobserve(el);
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    counterElements.forEach((el) => counterObserver.observe(el));
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabPanels = document.querySelectorAll(".tab-panel");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tab = button.dataset.tab;
+
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
+        });
+
+        tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+        button.classList.add("active");
+        button.setAttribute("aria-selected", "true");
+        document.getElementById(tab).classList.add("active");
+      });
+    });
+
+    document.querySelectorAll("[data-tilt]").forEach((card) => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 7;
+        const rotateX = -((y / rect.height) - 0.5) * 7;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(900px) rotateX(0) rotateY(0)";
+      });
+    });
+
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    let activeIndex = 0;
+
+    const showSlide = (index) => {
+      slides.forEach((slide) => slide.classList.remove("active"));
+      slides[index].classList.add("active");
+    };
+
+    const nextSlide = () => {
+      activeIndex = (activeIndex + 1) % slides.length;
+      showSlide(activeIndex);
+    };
+
+    const prevSlide = () => {
+      activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+      showSlide(activeIndex);
+    };
+
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    let sliderTimer = setInterval(nextSlide, 5500);
+
+    const resetTimer = () => {
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(nextSlide, 5500);
+    };
+
+    [nextBtn, prevBtn].forEach((btn) => {
+      btn.addEventListener("click", resetTimer);
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        faqItems.forEach((faq) => faq.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
+      });
+    });
+  </script>
+</body>
+</html>
