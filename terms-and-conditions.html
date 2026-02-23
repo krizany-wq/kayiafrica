@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayi | Terms and Conditions</title>
+  <meta name="description" content="Kayi Terms and Conditions" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #00A62A;
+      --red: #FA0200;
+      --black: #000000;
+      --gray: #ACACAC;
+      --glass: rgba(255,255,255,0.58);
+      --stroke: rgba(255,255,255,0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      color: #111;
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(0,166,42,.16), transparent 34%),
+        radial-gradient(circle at 88% 8%, rgba(250,2,0,.10), transparent 28%),
+        radial-gradient(circle at 55% 70%, rgba(172,172,172,.16), transparent 38%),
+        #f8fbf9;
+      min-height: 100vh;
+    }
+    h1,h2,h3 { font-family: "Space Grotesk", "Manrope", sans-serif; line-height: 1.05; letter-spacing: -.035em; color: var(--black); }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(1100px, calc(100vw - 1.5rem)); margin: 0 auto; padding: 1rem 0 2rem; }
+    .topbar {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.5);
+      backdrop-filter: blur(14px) saturate(140%);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+      margin-bottom: 1rem;
+    }
+    .brand { font-weight: 800; color: var(--black); text-decoration: none; letter-spacing: -.03em; font-family: "Space Grotesk", sans-serif; }
+    .actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 999px; border: 1px solid rgba(172,172,172,.35);
+      padding: .55rem .85rem; font-weight: 700; font-size: .86rem;
+      background: rgba(255,255,255,.72); color: #111; text-decoration: none;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(0,166,42,.25); box-shadow: 0 8px 18px rgba(0,0,0,.08); text-decoration: none; }
+    .btn.primary { background: linear-gradient(135deg, var(--green), #29d35e); color: #fff; border-color: transparent; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,255,255,.48));
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; border-radius: 999px; pointer-events: none;
+      filter: blur(8px); opacity: .9; animation: float 8s ease-in-out infinite;
+    }
+    .hero::before { width: 180px; height: 180px; right: -20px; top: -30px; background: radial-gradient(circle, rgba(0,166,42,.22), transparent 70%); }
+    .hero::after { width: 150px; height: 150px; left: -10px; bottom: -20px; background: radial-gradient(circle, rgba(250,2,0,.16), transparent 70%); animation-direction: reverse; }
+    .hero h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); margin-bottom: .4rem; }
+    .hero p { color: #333; max-width: 72ch; }
+    .meta { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .75rem; }
+    .meta span {
+      display: inline-flex; align-items: center; border-radius: 999px;
+      background: rgba(255,255,255,.7); border: 1px solid rgba(172,172,172,.28);
+      color: #444; font-size: .78rem; font-weight: 700; padding: .3rem .55rem;
+    }
+    .layout { display: grid; grid-template-columns: 290px 1fr; gap: 1rem; align-items: start; }
+    .sidebar, .content {
+      border-radius: 20px;
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(16px) saturate(140%);
+      box-shadow: 0 14px 34px rgba(0,0,0,.07);
+    }
+    .sidebar { position: sticky; top: 5.7rem; padding: .95rem; }
+    .sidebar h2 { font-size: .8rem; margin-bottom: .6rem; letter-spacing: .14em; text-transform: uppercase; }
+    .sidebar ol { padding-left: 1rem; display: grid; gap: .45rem; }
+    .sidebar a { color: #202020; font-weight: 600; }
+    .sidebar a:hover { color: var(--green); }
+    .content { padding: 1rem; }
+    .section {
+      padding: .95rem;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.42);
+      background: rgba(255,255,255,.46);
+      margin-bottom: .75rem;
+      animation: fadeUp .6s ease both;
+    }
+    .section h3 { font-size: 1rem; margin-bottom: .35rem; }
+    .section p, .section li { color: #2d2d2d; font-size: .94rem; }
+    .section ul { padding-left: 1.05rem; margin-top: .4rem; display: grid; gap: .2rem; }
+    .section .small { color: #5e5e5e; font-size: .85rem; }
+    .footnote {
+      margin-top: .35rem;
+      border-top: 1px dashed rgba(172,172,172,.35);
+      padding-top: .6rem;
+      color: #585858;
+      font-size: .85rem;
+    }
+    @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px);} to { opacity: 1; transform: translateY(0);} }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; top: auto; } }
+    @media (max-width: 640px) {
+      .wrap { width: min(1100px, calc(100vw - 1rem)); }
+      .topbar { top: .4rem; padding: .7rem; border-radius: 14px; }
+      .actions { width: 100%; }
+      .btn { flex: 1 1 160px; }
+      .hero, .content, .sidebar { border-radius: 16px; }
+      .content { padding: .8rem; }
+      .section { padding: .8rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+    /* Clean static mode */
+    body { background: #fff; }
+    * { animation: none !important; transition: none !important; }
+    .topbar, .hero, .sidebar, .content, .section {
+      background: #fff;
+      border: 1px solid rgba(172,172,172,.35);
+      box-shadow: 0 8px 20px rgba(0,0,0,.04);
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+    .hero::before, .hero::after { display: none; }
+    .section { margin-bottom: .85rem; }
+    .btn, .meta span { box-shadow: none; }
+    .btn.primary { background: #00A62A; }
+    .btn { background: #fff; }
+    .topbar { position: static; }
+    .sidebar a { color: #111; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html">Kayi Legal</a>
+      <div class="actions">
+        <a class="btn" href="privacy-policy.html">Privacy Policy</a>
+        <a class="btn" href="data-protection-policy.html">Data Protection</a>
+        <a class="btn primary" href="index.html">Back to Home</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Terms and Conditions</h1>
+      <p>
+        This page is customized in the new website design using content adapted from Kayi's published Terms and Conditions.
+        Refer to the official Kayi website for the latest legally binding version.
+      </p>
+      <div class="meta">
+        <span>Source: kayi.africa / Kayi terms page</span>
+        <span>Jurisdiction: Nigeria</span>
+        <span>Type: Legal Terms</span>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#acceptance">Acceptance of Terms</a></li>
+          <li><a href="#eligibility">Eligibility and Registration</a></li>
+          <li><a href="#accounts">Account Security</a></li>
+          <li><a href="#services">Services and Transactions</a></li>
+          <li><a href="#conduct">User Conduct</a></li>
+          <li><a href="#ip">Intellectual Property</a></li>
+          <li><a href="#termination">Termination</a></li>
+          <li><a href="#liability">Liability and Disclaimers</a></li>
+          <li><a href="#law">Governing Law</a></li>
+          <li><a href="#changes">Changes and Contact</a></li>
+        </ol>
+      </aside>
+
+      <main class="content">
+        <section class="section" id="acceptance">
+          <h3>1. Acceptance of Terms</h3>
+          <p>By accessing or using Kayi's digital channels and financial services, you agree to be bound by the Terms and Conditions published by Kayi. If you do not agree with the terms, you should not use the service.</p>
+        </section>
+
+        <section class="section" id="eligibility">
+          <h3>2. Eligibility and Registration</h3>
+          <p>Users are expected to be legally capable of entering into binding agreements and to provide accurate, current, and complete information during onboarding and account setup.</p>
+          <ul>
+            <li>KYC/identity verification details may be required before full service access is granted.</li>
+            <li>Providing false or misleading information may lead to suspension or account closure.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="accounts">
+          <h3>3. Account Security</h3>
+          <p>You are responsible for keeping login credentials, PINs, device access, and related security information confidential.</p>
+          <ul>
+            <li>Monitor your account activity regularly.</li>
+            <li>Report suspicious or unauthorized access promptly.</li>
+            <li>Do not share OTPs, passwords, or transaction PINs with anyone.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="services">
+          <h3>4. Services and Transactions</h3>
+          <p>Kayi may provide account, transfer, payment, and related digital financial services. Service availability, limits, turnaround times, and fees may vary by product and may be updated from time to time.</p>
+          <ul>
+            <li>Applicable charges should be disclosed before completing eligible transactions.</li>
+            <li>Kayi may update or discontinue certain services where required for operational, regulatory, or security reasons.</li>
+          </ul>
+        </section>
+
+        <section class="section" id="conduct">
+          <h3>5. User Conduct and Prohibited Use</h3>
+          <p>Users must not use Kayi services for unlawful activity, fraud, money laundering, abuse of systems, or attempts to bypass security controls, restrictions, or transaction checks.</p>
+        </section>
+
+        <section class="section" id="ip">
+          <h3>6. Intellectual Property</h3>
+          <p>Kayi branding, software interfaces, content, and trademarks remain the property of Kayi or its licensors. Unauthorized copying, redistribution, or misuse is prohibited except where expressly permitted.</p>
+        </section>
+
+        <section class="section" id="termination">
+          <h3>7. Suspension and Termination</h3>
+          <p>Kayi may suspend or terminate access to services where there is a breach of the terms, suspected fraud, legal/regulatory requirements, or material security concerns.</p>
+        </section>
+
+        <section class="section" id="liability">
+          <h3>8. Disclaimers and Limitation of Liability</h3>
+          <p>Service interruptions, maintenance windows, third-party network failures, and events outside Kayi's control may affect availability. Kayi's liability is limited to the extent permitted by applicable law and the relevant terms.</p>
+        </section>
+
+        <section class="section" id="law">
+          <h3>9. Governing Law and Jurisdiction</h3>
+          <p>The Terms are governed by the laws of the Federal Republic of Nigeria, and disputes are subject to applicable Nigerian courts or dispute resolution mechanisms as stated in Kayi's official terms.</p>
+        </section>
+
+        <section class="section" id="changes">
+          <h3>10. Changes to Terms and Contact</h3>
+          <p>Kayi may revise the Terms and Conditions and publish updates through its official channels. Continued use of services after an update may constitute acceptance of the revised terms.</p>
+          <p class="footnote">Contact Kayi: <a href="mailto:hello@kayi.africa">hello@kayi.africa</a> | 0800-000-KAYI (0800-000-5294)</p>
+          <p class="small">Design note: This is a styled presentation page for your website and should be reviewed against the official Kayi source before production legal sign-off.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
