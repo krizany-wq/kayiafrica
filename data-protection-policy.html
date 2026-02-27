@@ -25,17 +25,17 @@
     a { color:var(--green); text-decoration:none; }
     a:hover { text-decoration:underline; }
     .wrap { width:min(1100px, calc(100vw - 1.5rem)); margin:0 auto; padding:1rem 0 2rem; }
-    .topbar, .hero, .navpanel, .doc { background:var(--glass); border:1px solid var(--stroke); border-radius:18px; backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); box-shadow:0 14px 32px rgba(0,0,0,.07); }
+    .topbar, .hero, .navpanel, .doc { background:var(--glass); border:1px solid var(--stroke); border-radius:18px; backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); }
     .topbar { position:sticky; top:.75rem; z-index:20; display:flex; justify-content:space-between; gap:.75rem; align-items:center; padding:.75rem .9rem; margin-bottom:1rem; }
     .brand { color:#111; font-weight:800; text-decoration:none; font-family:"Space Grotesk",sans-serif; letter-spacing:-.03em; }
     .actions { display:flex; gap:.5rem; flex-wrap:wrap; }
-    .btn { border:1px solid rgba(172,172,172,.35); background:rgba(255,255,255,.72); color:#111; padding:.55rem .85rem; border-radius:999px; font-weight:700; font-size:.85rem; text-decoration:none; transition:all .25s ease; }
-    .btn:hover { transform:translateY(-2px); border-color:rgba(0,166,42,.24); box-shadow:0 8px 18px rgba(0,0,0,.08); text-decoration:none; }
+    .btn { border:1px solid rgba(172,172,172,.35); background:rgba(255,255,255,.72); color:#111; padding:.55rem .85rem; border-radius:999px; font-weight:700; font-size:.85rem; text-decoration:none; transition:none; }
+    .btn:hover { border-color:rgba(0,166,42,.24); text-decoration:none; }
     .btn.primary { background:linear-gradient(135deg, var(--green), #2bd663); color:#fff; border-color:transparent; }
     .hero { position:relative; overflow:hidden; padding:1rem; margin-bottom:1rem; }
-    .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; filter:blur(10px); animation:float 8s ease-in-out infinite; }
+    .hero::before, .hero::after { content:""; position:absolute; border-radius:999px; pointer-events:none; filter:blur(10px); }
     .hero::before { width:190px; height:190px; right:-30px; top:-35px; background:radial-gradient(circle, rgba(0,166,42,.22), transparent 70%); }
-    .hero::after { width:160px; height:160px; left:-15px; bottom:-25px; background:radial-gradient(circle, rgba(250,2,0,.14), transparent 70%); animation-direction:reverse; }
+    .hero::after { width:160px; height:160px; left:-15px; bottom:-25px; background:radial-gradient(circle, rgba(250,2,0,.14), transparent 70%); }
     .hero h1 { font-size:clamp(1.65rem, 4vw, 2.5rem); margin-bottom:.35rem; }
     .hero p { color:#313131; max-width:78ch; }
     .chips { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.7rem; }
@@ -47,13 +47,11 @@
     .navpanel a { color:#202020; font-weight:600; }
     .navpanel a:hover { color:var(--green); }
     .doc { padding:1rem; }
-    .panel { background:rgba(255,255,255,.44); border:1px solid rgba(255,255,255,.4); border-radius:14px; padding:.9rem; margin-bottom:.75rem; animation:fadeUp .6s ease both; }
+    .panel { background:rgba(255,255,255,.44); border:1px solid rgba(255,255,255,.4); border-radius:14px; padding:.9rem; margin-bottom:.75rem; }
     .panel h3 { font-size:1rem; margin-bottom:.35rem; }
     .panel p, .panel li { color:#2d2d2d; font-size:.94rem; }
     .panel ul { padding-left:1.05rem; margin-top:.35rem; display:grid; gap:.2rem; }
     .note { border-top:1px dashed rgba(172,172,172,.35); margin-top:.45rem; padding-top:.55rem; color:#5b5b5b; font-size:.85rem; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    @keyframes fadeUp { from {opacity:0; transform:translateY(14px)} to {opacity:1; transform:translateY(0)} }
     @media (max-width: 900px) { .grid { grid-template-columns:1fr; } .navpanel { position:static; top:auto; } }
     @media (max-width: 640px) { .wrap { width:min(1100px, calc(100vw - 1rem)); } .topbar { top:.4rem; padding:.7rem; } .actions { width:100%; } .btn { flex:1 1 145px; text-align:center; } .hero,.navpanel,.doc { border-radius:16px; } .doc { padding:.8rem; } .panel { padding:.8rem; } }
     @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } html { scroll-behavior:auto; } }
@@ -64,7 +62,6 @@
     .topbar, .hero, .navpanel, .doc, .panel {
       background: #fff;
       border: 1px solid rgba(172,172,172,.35);
-      box-shadow: 0 8px 20px rgba(0,0,0,.04);
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
     }
@@ -87,6 +84,15 @@
 
     <section class="hero">
       <h1>Data Protection Policy</h1>
+      <p>
+        This page customizes Kayi's published data safety / data protection content into a modern legal reading experience.
+        Please compare with the official Kayi page before go-live to ensure legal accuracy and recency.
+      </p>
+      <div class="chips">
+        <span>Source: Kayi data safety page</span>
+        <span>Type: Data Protection</span>
+        <span>Scope: Customer Data</span>
+      </div>
     </section>
 
     <div class="grid">

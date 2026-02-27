@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Kayi | Leadership, Careers and Newsroom</title>
+  <meta name="description" content="Learn about Kayi leadership, careers, and newsroom updates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --kayi-green: #00A62A;
+      --kayi-red: #FA0200;
+      --kayi-black: #000000;
+      --kayi-gray: #ACACAC;
+      --border: #e5e7eb;
+      --muted: #5f6368;
+      --container: min(1160px, calc(100vw - 2.5rem));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, h4 { line-height: 1.12; letter-spacing: -0.02em; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      z-index: 30;
+    }
+
+    .nav {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand img { width: 124px; height: auto; display: block; }
+
+    .menu { list-style: none; display: flex; align-items: center; gap: 1.15rem; }
+    .menu a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #111;
+    }
+    .menu a:hover,
+    .menu a.active { color: var(--kayi-green); }
+
+    .nav-actions { display: flex; gap: 0.65rem; }
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.7rem 1.05rem;
+      border: 1px solid transparent;
+    }
+    .btn-outline { border-color: #c9ced6; color: #111; background: #fff; }
+    .btn-primary { background: var(--kayi-green); color: #fff; border-color: var(--kayi-green); }
+
+    .mobile-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      position: relative;
+    }
+
+    .mobile-toggle span,
+    .mobile-toggle span::before,
+    .mobile-toggle span::after {
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 2px;
+      background: #111;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .mobile-toggle span::before { margin-top: -6px; }
+    .mobile-toggle span::after { margin-top: 6px; }
+
+    .section { width: var(--container); margin: 0 auto; padding: 2.8rem 0; }
+    .section h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: 0.7rem; }
+    .section h2 { font-size: clamp(1.45rem, 3vw, 2.2rem); margin-bottom: 0.7rem; }
+    .lead { color: #4f5968; max-width: 68ch; }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      background: #fff;
+    }
+
+    .people-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .person-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .photo-placeholder {
+      height: 220px;
+      padding: 0.75rem;
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef3f8 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+    }
+
+    .avatar {
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      border: 2px solid #d7dde4;
+      background: #fff;
+      color: #707b89;
+      display: grid;
+      place-items: center;
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .person-body { padding: 0.9rem; }
+    .person-body h3 { font-size: 1rem; margin-bottom: 0.28rem; }
+    .person-body p { color: #556173; font-size: 0.88rem; }
+
+    .split {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .item-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .item-card h3 { font-size: 1.06rem; margin-bottom: 0.45rem; }
+    .item-card p { color: #515d6d; font-size: 0.9rem; margin-bottom: 0.7rem; }
+    .item-card ul { list-style: none; display: grid; gap: 0.4rem; }
+    .item-card li { color: #313b4b; font-size: 0.88rem; }
+    .item-card li::before { content: "\2022 "; color: var(--kayi-green); font-weight: 800; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 2.2rem 0 1.2rem;
+    }
+
+    .footer-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .footer-col h4 { font-size: 0.98rem; margin-bottom: 0.5rem; }
+    .footer-col ul { list-style: none; display: grid; gap: 0.35rem; }
+    .footer-col li,
+    .footer-col a,
+    .footer-col p { color: #555f6e; font-size: 0.88rem; text-decoration: none; }
+    .footer-col a:hover { color: var(--kayi-green); }
+
+    .footer-note {
+      width: var(--container);
+      margin: 1rem auto 0;
+      padding-top: 0.85rem;
+      border-top: 1px dashed #dde3ea;
+      color: #5f6878;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 980px) {
+      .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        top: 76px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+      .menu.open { display: flex; }
+      .menu li { width: 100%; }
+      .menu a { display: block; width: 100%; padding: 0.85rem 1rem; border-bottom: 1px solid #edf1f5; }
+      .menu li:last-child a { border-bottom: 0; }
+
+      .mobile-toggle { display: inline-block; }
+      .nav-actions { display: none; }
+
+      .people-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="brand" aria-label="Kayi home">
+        <img src="assets/kayi-logo-full.png" alt="Kayi logo" />
+      </a>
+
+      <ul class="menu" id="main-menu">
+        <li><a href="index.html#personal">Personal</a></li>
+        <li><a href="index.html#business">Business</a></li>
+        <li><a href="about.html" class="active">About us</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="https://web.kayi.africa/" target="_blank" rel="noopener noreferrer">Log in</a>
+        <a class="btn btn-primary" href="https://web.kayi.africa/" target="_blank" rel="noopener noreferrer">Apply now</a>
+      </div>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu"><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>About Kayi</h1>
+      <p class="lead">
+        Kayi Microfinance Bank Limited is focused on accessible financial services, customer protection, and operational reliability for individuals and businesses.
+      </p>
+      <div class="split" style="margin-top: 1rem;">
+        <article class="item-card">
+          <h3>Regulated institution</h3>
+          <p>Licensed by the Central Bank of Nigeria as a microfinance institution with active compliance controls.</p>
+          <ul>
+            <li>CBN-regulated microfinance operations</li>
+            <li>Customer complaint handling framework</li>
+            <li>Operational and risk controls in place</li>
+          </ul>
+        </article>
+        <article class="item-card">
+          <h3>Customer service model</h3>
+          <p>Support is provided through digital channels, phone, and branch touchpoints to improve service continuity.</p>
+          <ul>
+            <li>Digital and call-based support</li>
+            <li>Branch and assisted service access</li>
+            <li>Service issue escalation process</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <h2>People</h2>
+      <div class="people-grid">
+        <article class="person-card">
+          <div class="photo-placeholder">
+            <img src="assets/saadina.avif" alt="Saadina Hamidu Dantata" loading="lazy" />
+          </div>
+          <div class="person-body">
+            <h3>Saadina Hamidu Dantata</h3>
+            <p>Founder/Chairman</p>
+          </div>
+        </article>
+
+        <article class="person-card">
+          <div class="photo-placeholder">
+            <img src="assets/saleem.avif" alt="Saleem Arshad" loading="lazy" />
+          </div>
+          <div class="person-body">
+            <h3>SALEEM ARSHAD</h3>
+            <p>CEO</p>
+          </div>
+        </article>
+
+        <article class="person-card">
+          <div class="photo-placeholder">
+            <img src="assets/eval-esege.avif" alt="Eval Esege" loading="lazy" />
+          </div>
+          <div class="person-body">
+            <h3>Eval Esege</h3>
+            <p>CTO</p>
+          </div>
+        </article>
+
+        <article class="person-card">
+          <div class="photo-placeholder">
+            <img src="assets/fatima.avif" alt="Fatima S. Dantata" loading="lazy" />
+          </div>
+          <div class="person-body">
+            <h3>Fatima S. Dantata</h3>
+            <p>Executive director</p>
+          </div>
+        </article>
+
+        <article class="person-card">
+          <div class="photo-placeholder"><div class="avatar">AK</div></div>
+          <div class="person-body">
+            <h3>Aminu Baba Koki</h3>
+            <p>Managing director</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="split">
+        <article class="item-card">
+          <h3>Careers</h3>
+          <p>Build your career with Kayi across operations, customer service, product, and technology roles.</p>
+          <ul>
+            <li>Open roles are posted through official channels</li>
+            <li>Graduate and experienced hire pathways</li>
+            <li>Structured onboarding and team support</li>
+          </ul>
+        </article>
+
+        <article class="item-card">
+          <h3>Newsroom</h3>
+          <p>Official updates on product launches, service notices, compliance announcements, and company milestones.</p>
+          <ul>
+            <li>Company and product announcements</li>
+            <li>Media inquiries via official support contacts</li>
+            <li>Periodic service and policy communications</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Corporate / Company</h4>
+        <ul>
+          <li>Kayi Microfinance Bank Limited, RC 1099354</li>
+          <li>Head Office: 61, Maganda Road, Kano, Nigeria</li>
+          <li>CBN License Status: Active</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms-and-conditions.html" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></li>
+          <li><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+          <li><a href="data-protection-policy.html" target="_blank" rel="noopener noreferrer">Data Protection Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="help.html">Help Center</a></li>
+          <li>Email: hello@kayi.africa</li>
+          <li>Phone: 0800-000-KAYI (0800-000-5294)</li>
+          <li>Business Hours: Mon - Fri, 8:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      &copy; 2026 Kayi Microfinance Bank Limited, RC 1099354. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const menu = document.getElementById("main-menu");
+    const toggle = document.getElementById("mobile-toggle");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => menu.classList.remove("open"));
+    });
+  </script>
+</body>
+</html>

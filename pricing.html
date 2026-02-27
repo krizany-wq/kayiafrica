@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayi Microfinance | Pricing and Service Charges</title>
+  <meta name="description" content="Kayi Microfinance pricing page for account services, USSD transactions, and POS merchant charges." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --kayi-green: #00a651;
+      --kayi-red: #e53a2e;
+      --kayi-black: #131313;
+      --kayi-muted: #667085;
+      --kayi-border: #e5e7eb;
+      --kayi-soft: #f5fbf8;
+      --container: min(1160px, calc(100vw - 2.5rem));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(circle at 95% 2%, rgba(0, 166, 81, 0.12), transparent 35%),
+        radial-gradient(circle at 5% 12%, rgba(229, 58, 46, 0.08), transparent 26%),
+        #fff;
+      color: #1f2937;
+    }
+
+    h1, h2, h3 { font-family: "Outfit", sans-serif; color: var(--kayi-black); letter-spacing: -0.02em; }
+
+    .container { width: var(--container); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #edf0f4;
+      z-index: 20;
+    }
+
+    .nav {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand-logo { width: 156px; height: auto; object-fit: contain; display: block; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.1rem;
+      border-radius: 11px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid #111;
+      color: #111;
+      background: #fff;
+    }
+
+    .hero {
+      padding: 4rem 0 2.2rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      padding: 0.38rem 0.78rem;
+      color: var(--kayi-green);
+      background: rgba(0, 166, 81, 0.1);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .chip::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--kayi-green);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.6vw, 3.6rem);
+      margin-bottom: 0.8rem;
+      max-width: 16ch;
+    }
+
+    .sub {
+      color: #475467;
+      max-width: 64ch;
+      margin-bottom: 1rem;
+    }
+
+    .effective {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0.6rem 0.8rem;
+      display: inline-flex;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #334155;
+      background: #fff;
+    }
+
+    .pricing-grid {
+      padding: 2.2rem 0 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e6ebef;
+      border-radius: 18px;
+      padding: 1.2rem;
+    }
+
+    .card h2 {
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .table {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .row {
+      border: 1px solid #e9edf2;
+      border-radius: 12px;
+      padding: 0.75rem;
+      background: #f9fbfc;
+    }
+
+    .row strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+      font-size: 0.95rem;
+    }
+
+    .row span {
+      color: #475569;
+      font-size: 0.88rem;
+    }
+
+    .note {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+
+    .disclaimer {
+      border: 1px solid #d9e1e8;
+      border-radius: 16px;
+      background: var(--kayi-soft);
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #334155;
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      border-top: 1px solid #eceff3;
+      padding: 2rem 0;
+      background: #fff;
+      font-size: 0.88rem;
+      color: #667085;
+    }
+
+    .footer-grid {
+      width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+      color: #0f172a;
+      font-family: "Outfit", sans-serif;
+    }
+
+    .footer-col p,
+    .footer-col li { color: #64748b; font-size: 0.84rem; }
+    .footer-col a { color: #64748b; text-decoration: none; }
+    .footer-col a:hover { color: var(--kayi-green); }
+
+    .footer-col ul { list-style: none; display: grid; gap: 0.35rem; }
+
+    .footer-note {
+      width: var(--container);
+      margin: 1.2rem auto 0;
+      border-top: 1px dashed #dbe1e7;
+      padding-top: 1rem;
+      color: #64748b;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="index.html"><img class="brand-logo" src="assets/kayi-logo.svg" alt="Kayi logo" /></a>
+      <a class="btn" href="index.html">Back to Home</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="chip">Pricing and Charges</span>
+        <h1>Transparent service charges for all customers</h1>
+        <p class="sub">This page provides a clear schedule for selected account, USSD, and POS services. Final charges remain subject to applicable CBN guidance and network provider rates where relevant.</p>
+        <div class="effective"><strong>Effective Date:</strong> February 14, 2026</div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="pricing-grid">
+        <article class="card">
+          <h2>Account Services</h2>
+          <div class="table">
+            <div class="row"><strong>Account Opening</strong><span>₦0</span></div>
+            <div class="row"><strong>Account Maintenance</strong><span>₦0</span></div>
+            <div class="row"><strong>SMS Alert (per message)</strong><span>As applicable</span></div>
+            <div class="row"><strong>Debit Card Issuance</strong><span>As applicable</span></div>
+            <div class="row"><strong>Intra-Kayi Transfer</strong><span>₦0</span></div>
+          </div>
+          <p class="note">Charges may vary by customer segment and account type.</p>
+        </article>
+
+        <article class="card">
+          <h2>USSD Services</h2>
+          <div class="table">
+            <div class="row"><strong>USSD Session Access</strong><span>Per network charge</span></div>
+            <div class="row"><strong>USSD Transfer</strong><span>As applicable</span></div>
+            <div class="row"><strong>Airtime/Data Purchase</strong><span>As applicable</span></div>
+            <div class="row"><strong>Balance Enquiry</strong><span>As applicable</span></div>
+            <div class="row"><strong>Mini Statement</strong><span>As applicable</span></div>
+          </div>
+          <p class="note">Telecom providers may apply additional charges independently.</p>
+        </article>
+
+        <article class="card">
+          <h2>POS Merchant Services</h2>
+          <div class="table">
+            <div class="row"><strong>POS Terminal Deployment</strong><span>Subject to merchant profile</span></div>
+            <div class="row"><strong>Merchant Discount Rate (MDR)</strong><span>As applicable</span></div>
+            <div class="row"><strong>POS Transaction Charge</strong><span>As applicable</span></div>
+            <div class="row"><strong>Terminal Support / Replacement</strong><span>As applicable</span></div>
+            <div class="row"><strong>Settlement Timeline</strong><span>According to service agreement</span></div>
+          </div>
+          <p class="note">Detailed commercial terms are shared during merchant onboarding.</p>
+        </article>
+      </div>
+
+      <div class="disclaimer">
+        Pricing information is provided for customer guidance and may be revised to reflect new regulatory directives, network tariffs, or operational updates. Customers are advised to review periodic notices and official communication channels.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Kayi Microfinance</h4>
+        <p>Licensed by the Central Bank of Nigeria (CBN) as a Microfinance Institution.</p>
+        <p>Customer deposits are insured by the Nigeria Deposit Insurance Corporation (NDIC), subject to applicable limits.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Regulatory Disclosures</h4>
+        <ul>
+          <li>CBN License Status: Active</li>
+          <li>AML/CFT and KYC compliance controls in place</li>
+          <li>Consumer protection and complaint handling process available</li>
+          <li>Service charges are disclosed on this page</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Corporate Information</h4>
+        <ul>
+          <li>Head Office: 61, Maganda Road,Kano, Nigeria</li>
+          <li>Email: hello@kayi.africa</li>
+          <li>Phone: 0800-000-KAYI (0800-000-5294)</li>
+          <li>Business Hours: Mon - Fri, 8:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms-and-conditions.html" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></li>
+          <li><a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+          <li><a href="data-protection-policy.html" target="_blank" rel="noopener noreferrer">Data Protection Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Social Media</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/mykayiapp" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://www.instagram.com/mykayiapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@mykayiapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          <li><a href="https://ng.linkedin.com/company/mykayiapp" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://x.com/mykayiapp" target="_blank" rel="noopener noreferrer">X</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      &copy; 2026 Kayi Microfinance. All rights reserved. This page is maintained for pricing transparency and regulatory disclosure.
+    </div>
+  </footer>
+</body>
+</html>

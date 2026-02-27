@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayi Help | Support and FAQs</title>
+  <meta name="description" content="Kayi Help page with support information, FAQs, and scam alert guidance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --kayi-green: #00A62A;
+      --kayi-red: #FA0200;
+      --kayi-black: #000000;
+      --kayi-gray: #ACACAC;
+      --border: #e5e7eb;
+      --muted: #5f6368;
+      --container: min(980px, calc(100vw - 2.5rem));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    .container { width: var(--container); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      z-index: 30;
+    }
+
+    .nav {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand img { width: 120px; height: auto; display: block; }
+
+    .menu { list-style: none; display: flex; gap: 1rem; }
+    .menu a { text-decoration: none; color: #111; font-weight: 700; font-size: 0.9rem; }
+    .menu a:hover { color: var(--kayi-green); }
+
+    .hero {
+      padding: 2.8rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 0.7rem; line-height: 1.12; }
+    .hero p { color: #4f5968; max-width: 62ch; }
+
+    .support-grid {
+      padding: 2rem 0 0.8rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .support-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .support-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .support-card p { color: #505b6b; font-size: 0.9rem; }
+
+    .faq-wrap { padding: 1.2rem 0 3rem; }
+    .faq-wrap h2 { font-size: 1.6rem; margin-bottom: 0.8rem; }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.95rem;
+      margin-bottom: 0.7rem;
+      background: #fff;
+    }
+
+    .faq-item h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .faq-item p { color: #4f5968; font-size: 0.91rem; }
+
+    .faq-item.alert {
+      border-color: rgba(250, 2, 0, 0.35);
+      background: #fff5f5;
+    }
+
+    .faq-item.alert h3 { color: #a30f0f; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #fff;
+      padding: 1.4rem 0;
+    }
+
+    .footer-note { color: #5f6878; font-size: 0.82rem; }
+
+    @media (max-width: 860px) {
+      .support-grid { grid-template-columns: 1fr; }
+      .menu { gap: 0.7rem; flex-wrap: wrap; justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Kayi home">
+        <img src="assets/kayi-logo-full.png" alt="Kayi logo" />
+      </a>
+      <ul class="menu">
+        <li><a href="index.html#personal">Personal</a></li>
+        <li><a href="index.html#business">Business</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Help and FAQs</h1>
+        <p>
+          Find support contacts, service guidance, and answers to common questions. Scam alert guidance is included below within the FAQs.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container support-grid">
+        <article class="support-card">
+          <h3>Phone Support</h3>
+          <p>0800-000-KAYI (0800-000-5294), Monday to Friday, 8:00 AM - 5:00 PM.</p>
+        </article>
+        <article class="support-card">
+          <h3>Email Support</h3>
+          <p>Send account or service requests to <strong>hello@kayi.africa</strong>.</p>
+        </article>
+        <article class="support-card">
+          <h3>Digital Access</h3>
+          <p>Use <strong>web.kayi.africa</strong> for account access, transaction checks, and service requests.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="faq-wrap">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+
+        <article class="faq-item">
+          <h3>How do I open a Kayi account?</h3>
+          <p>You can start from the Kayi app/web channel and complete onboarding with the required KYC information.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Where can I find transaction charges?</h3>
+          <p>Applicable service charges are disclosed during transactions and through official Kayi communication channels.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Do you support business and merchant services?</h3>
+          <p>Yes. Kayi supports business accounts, transfers, collections, and merchant services including POS support.</p>
+        </article>
+
+        <article class="faq-item alert">
+          <h3>Scam alert: Does Kayi ask for OTP, PIN, or password?</h3>
+          <p>No. Kayi will never ask for your OTP, PIN, password, or full card details through phone calls, SMS, social media, or chat. Do not share these with anyone.</p>
+        </article>
+
+        <article class="faq-item alert">
+          <h3>Scam alert: What should I do if I receive a suspicious message?</h3>
+          <p>Do not click unknown links or share sensitive information. Report the incident immediately via official Kayi support channels.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-note">
+      &copy; 2026 Kayi Microfinance Bank Limited, RC 1099354. Help Center.
+    </div>
+  </footer>
+</body>
+</html>
