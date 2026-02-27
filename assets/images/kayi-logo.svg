@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="96" viewBox="0 0 320 96" fill="none" role="img" aria-label="Kayi logo">
+  <rect width="320" height="96" fill="transparent"/>
+  <path d="M14 15H25V45L52 15H67L41 43L70 81H56L34 52L25 62V81H14V15Z" fill="#00A651"/>
+  <path d="M40 15H51V81H40V15Z" fill="#00A651"/>
+  <path d="M53 43L66 32L72 39L59 50L53 43Z" fill="#E53A2E"/>
+  <text x="78" y="70" fill="#131313" font-family="Outfit, Manrope, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">kayi</text>
+</svg>
